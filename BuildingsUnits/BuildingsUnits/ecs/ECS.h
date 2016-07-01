@@ -1,76 +1,50 @@
 #pragma once
 
+#include <iostream>
 #include <bitset>
 #include <vector>
 #include <string>
 #include <memory>
+#include <typeindex>
+#include <map>
+
+#include "defs.h"
+#include "component.h"
+#include "system.h"
+
+using std::cout;
 using std::string;
 using std::bitset;
 using std::vector;
 using std::shared_ptr;
+using std::type_index;
+using std::map;
 
+class TranslateSystem;
 
-class Component;
-class System;
-class Manager;
-
-struct Entity {
-	unsigned int id;
-};
-
-class Component {
-	
-};
-
-class System {
-
-public :
-
-	virtual void init() { };
-
-	void update() {
-		
-		vector<unsigned int> matchingEntities;
-
-		for (int entity = 0; entity < Manager::MAX_ENTITIES; entity++) {
-			if ((manager->entityMasks[entity] & componentFilter) == componentFilter) {
-				matchingEntities.push_back(entity);
-			}
-		}
-
-		updateEntities(matchingEntities);
-	
-	};
-
-	virtual ~System() { };
-
-private :
-
-	shared_ptr<Manager> manager;
-
-	bitset<Manager::NUM_COMPONENTS> componentFilter;
-
-	virtual void updateEntities(vector<unsigned int>& entities) { };
-
-};
+using namespace definitions;
 
 class Manager {
 
-public :
+public:
 
-	static const unsigned int NUM_COMPONENTS = 10;
-	static const unsigned int MAX_ENTITIES = 5000;
+	map<type_index, unsigned int> componentBits;
 
-	bitset<NUM_COMPONENTS> entityMasks[MAX_ENTITIES];
+	// Entity Data
+	ComponentMask entityMasks[MAX_ENTITIES];
+	TranslateComponent translateComponents[MAX_ENTITIES];
 
-	Manager() {
-		thisPointer = shared_ptr<Manager>(this);
-	}
+	// Systems
+	TranslateSystem* translateSystem;
 
-private :
+	Manager();
 
-	static const unsigned int NUM_COMPONENTS;
+	~Manager();
 
-	shared_ptr<Manager> thisPointer;
+	void createSystems();
+
+	ComponentMask generateMask(vector<type_index>& components);
+
+	unsigned int createEntityHandle();
 
 };
