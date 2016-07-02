@@ -8,7 +8,9 @@
 int main(int argc, char* args[])
 {
 
-	
+	cout << "plis" << std::endl;
+	std::cin.get();
 
     return 0;
+
 }

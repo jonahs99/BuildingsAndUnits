@@ -159,7 +159,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="system\BuildingsUnits.cpp" />
+    <ClCompile Include="BuildingsUnits.cpp" />
     <ClCompile Include="ecs\Manager.cpp" />
     <ClCompile Include="ecs\System.cpp" />
     <ClCompile Include="system\RenderSystem.cpp" />
