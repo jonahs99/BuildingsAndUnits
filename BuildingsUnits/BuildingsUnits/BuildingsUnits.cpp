@@ -1,7 +1,7 @@
 // BuildingsUnits.cpp : Defines the entry point for the console application.
 //
 
-#include "ecs/ecs.h"
+#include "ecs/Manager.h"
 #include "system/RenderSystem.h"
 #include "system/InputSystem.h"
 #include "system/ControlSystem.h"
@@ -50,13 +50,28 @@ int main(int argc, char* args[])
 
 	createPlayerEntity();
 
-	bool running = true;
+	int MS_PER_UPDATE = 100;
 
+	int previous = SDL_GetTicks();
+	int lag = 0;
+
+	bool running = true;
 	while (running) {
+		int current = SDL_GetTicks();
+		int ellapsed = current - previous;
+		previous = current;
+		lag += ellapsed;
 
 		running = inputSystem.update();
-		controlSystem.update();
+
+		while (lag >= MS_PER_UPDATE) {
+			controlSystem.update();
+			lag -= MS_PER_UPDATE;
+		}
+
 		renderSystem.update();
+		if (ellapsed)
+			cout << (1000 / ellapsed) << std::endl;
 
 	}
 
