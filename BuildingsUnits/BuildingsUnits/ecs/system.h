@@ -33,7 +33,11 @@ protected:
 
 	Manager* manager;
 
-	void addDependency(type_index componentType);
+	template <class T>
+	void addDependency() {
+		dependencies.push_back(type_index(typeid(T)));
+		componentFilter = manager->generateMask(dependencies);
+	};
 
 	virtual void updateEntities() { };
 
@@ -44,17 +48,5 @@ private:
 	vector<type_index> dependencies;
 
 	ComponentMask componentFilter;
-
-};
-
-class TranslateSystem : public System {
-
-	using System::System;
-
-public:
-
-	void init() override;
-
-	void update() override;
 
 };

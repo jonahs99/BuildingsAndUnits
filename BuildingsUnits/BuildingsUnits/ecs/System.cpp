@@ -9,8 +9,3 @@ void System::checkNewEntity(unsigned int ent) {
 		systemEntities.push_back(ent);
 	}
 }
-
-void System::addDependency(type_index componentType) {
-	dependencies.push_back(componentType);
-	componentFilter = manager->generateMask(dependencies);
-}
