@@ -1,4 +1,5 @@
-#include "..\system.h"
+#include "../component.h"
+#include "../system.h"
 
 void TranslateSystem::init() {
 	addDependency(type_index(typeid(TranslateComponent)));

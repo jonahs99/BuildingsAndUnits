@@ -12,7 +12,6 @@
 #include <boost/any.hpp> 
 
 #include "defs.h"
-#include "component.h"
 #include "system.h"
 
 using std::cout;
@@ -61,7 +60,7 @@ public:
 
 	template <class T>
 	void addComponent(unsigned int entity, T component) {
-		ComponentArray<T> * componentArray = (boost::any_cast<ComponentArray<T>> (&componentArrays[type_index(typeid(T))]));
+		ComponentArray<T> * componentArray = boost::any_cast<ComponentArray<T>> (&componentArrays[type_index(typeid(T))]);
 		(*componentArray)[entity] = component;
 		entityMasks[entity] |= componentBits[type_index(typeid(T))];
 		updateSystemEntityLists(entity);
@@ -69,8 +68,8 @@ public:
 	
 	template <class T>
 	T getComponent(unsigned int entity) {
-		ComponentArray<T> componentArray = (boost::any_cast<ComponentArray<T>> (componentArrays[type_index(typeid(T))]));
-		return componentArray[entity];
+		ComponentArray<T> * componentArray = boost::any_cast<ComponentArray<T>> (&componentArrays[type_index(typeid(T))]);
+		return (*componentArray)[entity];
 	}
 
 	template <class T>
