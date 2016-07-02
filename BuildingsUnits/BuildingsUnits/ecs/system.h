@@ -21,10 +21,6 @@ public:
 
 	System(Manager* mng);
 
-	virtual void init() { };
-
-	virtual void update() { };
-
 	virtual ~System() { };
 
 	void checkNewEntity(unsigned int entity);

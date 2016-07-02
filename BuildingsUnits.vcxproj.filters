@@ -30,6 +30,15 @@
     <ClCompile Include="buildingsunits\buildingsunits\system\RenderSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BuildingsUnits\BuildingsUnits\ui\UI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildingsUnits\BuildingsUnits\system\InputSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildingsUnits\BuildingsUnits\system\ControlSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="buildingsunits\buildingsunits\component.h">
@@ -44,13 +53,22 @@
     <ClInclude Include="buildingsunits\buildingsunits\ecs\defs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="buildingsunits\buildingsunits\ecs\ECS.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="buildingsunits\buildingsunits\ecs\system.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="buildingsunits\buildingsunits\system\RenderSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\ui\UI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="buildingsunits\buildingsunits\ecs\ECS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\system\InputSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\system\ControlSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

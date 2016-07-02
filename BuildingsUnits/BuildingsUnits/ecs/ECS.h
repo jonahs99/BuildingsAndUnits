@@ -67,7 +67,7 @@ public:
 	}
 	
 	template <class T>
-	T getComponent(unsigned int entity) {
+	T& getComponent(unsigned int entity) {
 		ComponentArray<T> * componentArray = boost::any_cast<ComponentArray<T>> (&componentArrays[type_index(typeid(T))]);
 		return (*componentArray)[entity];
 	}

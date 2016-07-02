@@ -11,8 +11,10 @@ class RenderSystem : public System {
 
 public :
 
-	void init() override;
+	void init(SDL_Renderer* m_renderer);
 
-	void update() override;
+	void update();
 
+private :
+	SDL_Renderer* renderer;
 };

@@ -9,6 +9,12 @@ struct RenderComponent {
 
 struct TranslateComponent {
 
-	int x, y;
+	float x, y;
+
+};
+
+struct InputComponent {
+
+	bool up, down, left, right;
 
 };

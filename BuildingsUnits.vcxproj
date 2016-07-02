@@ -104,6 +104,9 @@
     <ClCompile Include="buildingsunits\buildingsunits\BuildingsUnits.cpp" />
     <ClCompile Include="buildingsunits\buildingsunits\ecs\Manager.cpp" />
     <ClCompile Include="buildingsunits\buildingsunits\ecs\System.cpp" />
+    <ClCompile Include="BuildingsUnits\BuildingsUnits\system\ControlSystem.cpp" />
+    <ClCompile Include="BuildingsUnits\BuildingsUnits\system\InputSystem.cpp" />
+    <ClCompile Include="BuildingsUnits\BuildingsUnits\ui\UI.cpp" />
     <ClCompile Include="buildingsunits\buildingsunits\stdafx.cpp" />
     <ClCompile Include="buildingsunits\buildingsunits\system\RenderSystem.cpp" />
   </ItemGroup>
@@ -112,6 +115,9 @@
     <ClInclude Include="buildingsunits\buildingsunits\ecs\defs.h" />
     <ClInclude Include="buildingsunits\buildingsunits\ecs\ECS.h" />
     <ClInclude Include="buildingsunits\buildingsunits\ecs\system.h" />
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\system\ControlSystem.h" />
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\system\InputSystem.h" />
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\ui\UI.h" />
     <ClInclude Include="buildingsunits\buildingsunits\stdafx.h" />
     <ClInclude Include="buildingsunits\buildingsunits\system\RenderSystem.h" />
     <ClInclude Include="buildingsunits\buildingsunits\targetver.h" />
