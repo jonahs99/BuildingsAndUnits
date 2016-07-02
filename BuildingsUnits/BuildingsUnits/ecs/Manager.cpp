@@ -8,14 +8,14 @@ Manager::~Manager() {
 
 }
 
-void Manager::createSystems() {
-
+void Manager::init() {
+	
 }
 
 ComponentMask Manager::generateMask(vector<type_index>& components) {
 	ComponentMask mask;
 	for (auto comp : components) {
-		if (componentBits[comp])
+		if (componentBits.find(comp) != componentBits.end())
 			mask |= componentBits[comp];
 		else
 			cout << "Manager::generateMask >> Invalid type, needed component.\n";
@@ -33,4 +33,10 @@ unsigned int Manager::createEntityHandle() {
 		}
 	}
 	return handle;
+}
+
+void Manager::updateSystemEntityLists(unsigned int ent) {
+	for (auto sys : systems) {
+		sys.second->checkNewEntity(ent);
+	}
 }

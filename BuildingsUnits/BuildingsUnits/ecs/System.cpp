@@ -4,14 +4,10 @@ System::System(Manager* mng) {
 	manager = mng;
 }
 
-void System::update() {
-	vector<unsigned int> matchingEntities;
-	for (int entity = 0; entity < MAX_ENTITIES; entity++) {
-		if ((manager->entityMasks[entity] & componentFilter) == componentFilter) {
-			matchingEntities.push_back(entity);
-		}
+void System::checkNewEntity(unsigned int ent) {
+	if ((manager->entityMasks[ent] & componentFilter) == componentFilter) {
+		systemEntities.push_back(ent);
 	}
-	updateEntities(matchingEntities);
 }
 
 void System::addDependency(type_index componentType) {

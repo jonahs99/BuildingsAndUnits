@@ -4,11 +4,11 @@ void TranslateSystem::init() {
 	addDependency(type_index(typeid(TranslateComponent)));
 }
 
-void TranslateSystem::updateEntities(vector<unsigned int>& entities) {
+void TranslateSystem::update() {
 
-	for (auto ent : entities) {
+	for (auto ent : systemEntities) {
 		cout << "translate system updating " << ent << "\n";
-		manager->translateComponents[ent].x += 0.1;
+		//manager->getComponent<TranslateComponent> += 0.1;
 	}
 
 }

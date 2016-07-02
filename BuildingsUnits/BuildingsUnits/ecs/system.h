@@ -23,9 +23,11 @@ public:
 
 	virtual void init() { };
 
-	void update();
+	virtual void update() { };
 
 	virtual ~System() { };
+
+	void checkNewEntity(unsigned int entity);
 
 protected:
 
@@ -33,7 +35,9 @@ protected:
 
 	void addDependency(type_index componentType);
 
-	virtual void updateEntities(vector<unsigned int>& entities) { };
+	virtual void updateEntities() { };
+
+	vector<unsigned int> systemEntities;
 
 private:
 
@@ -43,10 +47,14 @@ private:
 
 };
 
-class TranslateSystem : System {
+class TranslateSystem : public System {
+
+	using System::System;
+
+public:
 
 	void init() override;
 
-	void updateEntities(vector<unsigned int>& entities) override;
+	void update() override;
 
 };
