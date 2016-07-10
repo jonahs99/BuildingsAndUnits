@@ -14,7 +14,7 @@ void ControlSystem::update() {
 		auto & ic = manager->getComponent<InputComponent>(entity);
 		auto & tc = manager->getComponent<TranslateComponent>(entity);
 
-		float speed = 0.05;
+		float speed = 1;
 		
 		if (ic.up)
 			tc.y -= speed;
