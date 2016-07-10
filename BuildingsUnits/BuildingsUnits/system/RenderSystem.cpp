@@ -24,7 +24,7 @@ void RenderSystem::update() {
 
 		SDL_Rect drect;
 		drect.x = tc.x - tilemap->tile_width; drect.y = tc.y - tilemap->tile_height;
-		drect.w = tilemap->tile_width * 2; drect.h = tilemap->tile_height * 2;
+		drect.w = tilemap->tile_width * 4; drect.h = tilemap->tile_height * 4;
 
 		SDL_Rect srect;
 		srect.x = (rc.tileIndex % tilemap->tiles_wide) * tilemap->tile_width;

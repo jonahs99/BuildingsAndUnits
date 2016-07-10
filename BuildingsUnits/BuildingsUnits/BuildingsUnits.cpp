@@ -11,6 +11,9 @@
 #include "ui/UI.h"
 #include "gfx/AssetLoader.h"
 
+#include <chrono>
+#include <thread>
+
 Manager manager;
 AssetLoader loader;
 
@@ -74,16 +77,23 @@ int main(int argc, char* args[])
 	loader.init(ui.getRenderer());
 	loader.loadTextures();
 
-	for (int i = 0; i < 40; i++) {
+	for (int i = 0; i < 50; i++) {
 		createPlayerEntity();
 		manager.getComponent<TranslateComponent>(manager.createEntityHandle() - 1).x = (i % 10) * 100 + 140;
 		manager.getComponent<TranslateComponent>(manager.createEntityHandle() - 1).y = (i / 10) * 100 + 300;
 	}
 
+	int frames = 0;
+	int fps_cum = 0;
 	int MS_PER_UPDATE = 33;
+	int MS_PER_FRAME = 10;
+
+	int last_fpsupdate = SDL_GetTicks();
 
 	int previous = SDL_GetTicks();
 	int lag = 0;
+
+	int last_render = SDL_GetTicks();
 
 	bool updated = true;
 	bool running = true;
@@ -100,17 +110,30 @@ int main(int argc, char* args[])
 			aiSystem.update();
 			controlSystem.update();
 			animationSystem.update();
-			cout << "Updating in " << (SDL_GetTicks() - updatemeasure) << " ms. \n";
+			//cout << "Updating in " << 1000 / (SDL_GetTicks() - updatemeasure) << " fps. \n";
 			lag -= MS_PER_UPDATE;
 			updated = true;
 		}
 
-		if (updated) {
-			int rendermeasure = SDL_GetTicks();
-			renderSystem.update();
-			updated = false;
-			cout << "Rendering in " << (SDL_GetTicks() - rendermeasure) << " ms. \n";
+		int wait_time = SDL_GetTicks() - last_render + MS_PER_FRAME;
+		if (wait_time > 0)
+			std::this_thread::sleep_for(std::chrono::milliseconds(wait_time));
+
+		//if (updated) {
+		if (SDL_GetTicks() - last_render) {
+			fps_cum += 1000 / (SDL_GetTicks() - last_render);
 		}
+		frames++;
+		if (SDL_GetTicks() - last_fpsupdate >= 1000) {
+			std::cout << "Rendering fps: " << (fps_cum / frames) << std::endl;
+			frames = 0;
+			fps_cum = 0;
+			last_fpsupdate = SDL_GetTicks();
+		}
+		last_render = SDL_GetTicks();
+		renderSystem.update();
+		updated = false;
+		//}
 
 	}
 

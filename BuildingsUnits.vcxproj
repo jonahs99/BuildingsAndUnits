@@ -63,8 +63,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>Z:\VS_dev_libs\SDL2-devel-2.0.4-VC\SDL2-2.0.4\include;$(IncludePath)</IncludePath>
-    <LibraryPath>Z:\VS_dev_libs\SDL2-devel-2.0.4-VC\SDL2-2.0.4\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>Z:\VS_dev_libs\SDL2-devel-2.0.4-VC\SDL2-2.0.4\include;Z:\VS_dev_libs\SDL_Image\SDL2_image-2.0.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>Z:\VS_dev_libs\SDL2-devel-2.0.4-VC\SDL2-2.0.4\lib\x86;Z:\VS_dev_libs\SDL_Image\SDL2_image-2.0.1\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -81,7 +81,7 @@
       <TargetMachine>MachineX86</TargetMachine>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>Z:\VS_dev_libs\boost_1_61_0\boost_1_61_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -104,6 +104,9 @@
     <ClCompile Include="buildingsunits\buildingsunits\BuildingsUnits.cpp" />
     <ClCompile Include="buildingsunits\buildingsunits\ecs\Manager.cpp" />
     <ClCompile Include="buildingsunits\buildingsunits\ecs\System.cpp" />
+    <ClCompile Include="BuildingsUnits\BuildingsUnits\gfx\AssetLoader.cpp" />
+    <ClCompile Include="BuildingsUnits\BuildingsUnits\system\AISystem.cpp" />
+    <ClCompile Include="BuildingsUnits\BuildingsUnits\system\AnimationSystem.cpp" />
     <ClCompile Include="BuildingsUnits\BuildingsUnits\system\ControlSystem.cpp" />
     <ClCompile Include="BuildingsUnits\BuildingsUnits\system\InputSystem.cpp" />
     <ClCompile Include="BuildingsUnits\BuildingsUnits\ui\UI.cpp" />
@@ -114,13 +117,22 @@
     <ClInclude Include="buildingsunits\buildingsunits\component.h" />
     <ClInclude Include="buildingsunits\buildingsunits\ecs\defs.h" />
     <ClInclude Include="buildingsunits\buildingsunits\ecs\ECS.h" />
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\ecs\Manager.h" />
     <ClInclude Include="buildingsunits\buildingsunits\ecs\system.h" />
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\gfx\AssetLoader.h" />
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\gfx\Tilemap.h" />
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\system\AISystem.h" />
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\system\AnimationSystem.h" />
     <ClInclude Include="BuildingsUnits\BuildingsUnits\system\ControlSystem.h" />
     <ClInclude Include="BuildingsUnits\BuildingsUnits\system\InputSystem.h" />
     <ClInclude Include="BuildingsUnits\BuildingsUnits\ui\UI.h" />
     <ClInclude Include="buildingsunits\buildingsunits\stdafx.h" />
     <ClInclude Include="buildingsunits\buildingsunits\system\RenderSystem.h" />
     <ClInclude Include="buildingsunits\buildingsunits\targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="BuildingsUnits\BuildingsUnits\assets\textures\guy_tilemap.bmp" />
+    <Image Include="BuildingsUnits\BuildingsUnits\assets\textures\soldier.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

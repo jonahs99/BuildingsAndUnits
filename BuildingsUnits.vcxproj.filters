@@ -39,6 +39,15 @@
     <ClCompile Include="BuildingsUnits\BuildingsUnits\system\ControlSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BuildingsUnits\BuildingsUnits\gfx\AssetLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildingsUnits\BuildingsUnits\system\AISystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildingsUnits\BuildingsUnits\system\AnimationSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="buildingsunits\buildingsunits\component.h">
@@ -71,5 +80,28 @@
     <ClInclude Include="BuildingsUnits\BuildingsUnits\system\ControlSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\gfx\AssetLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\gfx\Tilemap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\ecs\Manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\system\AISystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildingsUnits\BuildingsUnits\system\AnimationSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="BuildingsUnits\BuildingsUnits\assets\textures\guy_tilemap.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="BuildingsUnits\BuildingsUnits\assets\textures\soldier.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

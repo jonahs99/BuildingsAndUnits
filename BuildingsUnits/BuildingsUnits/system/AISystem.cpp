@@ -19,10 +19,10 @@ void AISystem::update() {
 		aic.phase--;
 		if (aic.phase <= 0) {
 			aic.phase = aic.wait;
-			ic.down = (rand() % 100) < 3;
-			ic.left = (rand() % 100) < 3;
-			ic.right = (rand() % 100) < 3;
-			ic.up = (rand() % 100) < 3;
+			ic.down = (rand() % 100) < 30;
+			ic.left = (rand() % 100) < 30;
+			ic.right = (rand() % 100) < 30;
+			ic.up = (rand() % 100) < 30;
 		}
 
 	}

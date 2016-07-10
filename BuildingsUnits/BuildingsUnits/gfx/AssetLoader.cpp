@@ -1,4 +1,5 @@
 #include "AssetLoader.h"
+#include <iostream>
 
 void AssetLoader::loadTextures() {
 
@@ -27,6 +28,9 @@ SDL_Surface* AssetLoader::loadSurface(std::string path)
 
 	//Load image at specified path
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
+
+	if (loadedSurface == nullptr)
+		std::cout << "OOPS" << std::endl;
 
 	return loadedSurface;
 }
