@@ -1,7 +1,7 @@
 #pragma once
 
 #include "defs.h"
-#include "ECS.h"
+#include "Manager.h"
 
 using std::cout;
 using std::string;

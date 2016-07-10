@@ -1,5 +1,7 @@
 #include "RenderSystem.h"
 
+#include <algorithm>
+
 void RenderSystem::init(SDL_Renderer* m_renderer) {
 
 	addDependency<TranslateComponent>();
@@ -16,19 +18,20 @@ void RenderSystem::update() {
 
 	for (auto entity : systemEntities) {
 
-		auto tc = manager->getComponent<TranslateComponent>(entity);
-		auto rc = manager->getComponent<RenderComponent>(entity);
+		auto& tc = manager->getComponent<TranslateComponent>(entity);
+		auto& rc = manager->getComponent<RenderComponent>(entity);
+		auto * tilemap = rc.tilemap;
 
-		SDL_Rect rect;
-		rect.x = tc.x - rc.size / 2 + 3; rect.y = tc.y - rc.size / 2 + 3;
-		rect.w = rc.size; rect.h = rc.size;
+		SDL_Rect drect;
+		drect.x = tc.x - tilemap->tile_width; drect.y = tc.y - tilemap->tile_height;
+		drect.w = tilemap->tile_width * 2; drect.h = tilemap->tile_height * 2;
 
-		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-		SDL_RenderFillRect(renderer, &rect);
+		SDL_Rect srect;
+		srect.x = (rc.tileIndex % tilemap->tiles_wide) * tilemap->tile_width;
+		srect.y = (rc.tileIndex / tilemap->tiles_wide) * tilemap->tile_height;
+		srect.w = tilemap->tile_width; srect.h = tilemap->tile_height;
 
-		rect.x -= 3; rect.y -= 3;
-		SDL_SetRenderDrawColor(renderer, 50, 100, 200, 255);
-		SDL_RenderFillRect(renderer, &rect);
+		SDL_RenderCopy(renderer, tilemap->texture, &srect, &drect);
 
 	}
 

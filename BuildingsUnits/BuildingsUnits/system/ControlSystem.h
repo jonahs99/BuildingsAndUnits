@@ -9,8 +9,12 @@ class ControlSystem : public System {
 
 public:
 
-	void init();
+	void init(AssetLoader * m_loader);
 
 	void update();
+
+private:
+
+	AssetLoader * loader;
 
 };
