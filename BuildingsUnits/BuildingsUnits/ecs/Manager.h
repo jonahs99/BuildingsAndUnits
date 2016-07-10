@@ -8,6 +8,7 @@
 #include <typeindex>
 #include <map>
 #include <array>
+#include <cassert>
 
 #include <boost/any.hpp> 
 
@@ -56,6 +57,7 @@ public:
 		componentBits[type_index(typeid(T))] = ComponentMask(1);
 		componentBits[type_index(typeid(T))] <<= num_components;
 		num_components++;
+		assert(num_components <= MAX_COMPONENTS);
 	}
 
 	template <class T>

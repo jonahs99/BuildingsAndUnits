@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{960336A4-340C-4C99-A99E-EF4DBA4CA88B}</ProjectGuid>
+    <ProjectGuid>{8B25E269-FF04-4B67-AE61-A9C87E1F0AAB}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>BuildingsUnits</RootNamespace>
+    <RootNamespace>PrintPather</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -71,8 +71,6 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\Jonah\Documents\Development\VS_dev_lib\SDL2-devel-2.0.4-VC\SDL2-2.0.4\include;C:\Users\Jonah\Documents\Development\VS_dev_lib\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Jonah\Documents\Development\VS_dev_lib\SDL2-devel-2.0.4-VC\SDL2-2.0.4\lib\x86;C:\Users\Jonah\Documents\Development\VS_dev_lib\SDL2_image-devel-2.0.1-VC\SDL2_image-2.0.1\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -85,18 +83,15 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Jonah\Documents\Development\VS_dev_lib\boost_1_60_0\boost_1_60_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Jonah\Documents\Development\VS_dev_lib\boost_1_60_0\boost_1_60_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -150,42 +145,18 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="component.h" />
-    <ClInclude Include="ecs\defs.h" />
-    <ClInclude Include="ecs\Manager.h" />
-    <ClInclude Include="ecs\system.h" />
-    <ClInclude Include="gfx\AssetLoader.h" />
-    <ClInclude Include="gfx\Tilemap.h" />
-    <ClInclude Include="system\AISystem.h" />
-    <ClInclude Include="system\AnimationSystem.h" />
-    <ClInclude Include="system\ControlSystem.h" />
-    <ClInclude Include="system\InputSystem.h" />
-    <ClInclude Include="system\RenderSystem.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="ui\UI.h" />
+    <ClInclude Include="Vector3d.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BuildingsUnits.cpp" />
-    <ClCompile Include="ecs\Manager.cpp" />
-    <ClCompile Include="ecs\System.cpp" />
-    <ClCompile Include="gfx\AssetLoader.cpp" />
-    <ClCompile Include="system\AISystem.cpp" />
-    <ClCompile Include="system\AnimationSystem.cpp" />
-    <ClCompile Include="system\ControlSystem.cpp" />
-    <ClCompile Include="system\InputSystem.cpp" />
-    <ClCompile Include="system\RenderSystem.cpp" />
+    <ClCompile Include="PrintPather.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="ui\UI.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="assets\textures\guy_tilemap.bmp" />
-    <Image Include="assets\textures\soldier.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -17,4 +17,5 @@ public :
 
 private :
 	SDL_Renderer* renderer;
+
 };

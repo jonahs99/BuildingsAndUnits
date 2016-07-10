@@ -3,18 +3,14 @@
 #include "../ecs/system.h"
 #include "../component.h"
 
-class ControlSystem : public System {
+class AnimationSystem : public System {
 
 	using System::System;
 
 public:
 
-	void init(AssetLoader * m_loader);
+	void init();
 
 	void update();
-
-private:
-
-	AssetLoader * loader;
 
 };
