@@ -1,2 +1,3 @@
 # BuildingsAndUnits
-Only the best new RTS
+
+A real time strategy
