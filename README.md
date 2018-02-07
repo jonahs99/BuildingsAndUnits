@@ -1,3 +1,3 @@
-# BuildingsAndUnits
+# Buildings And Units
 
-A real time strategy
+A real time strategy project - abandoned for now.
